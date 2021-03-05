@@ -1,0 +1,35 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
+        xmlns:local="clr-namespace:RoboVMonitorApp"
+        x:Class="RoboVMonitorApp.RoboVMonitor"
+        mc:Ignorable="d"
+        Title="One Place Support" Height="400" Width="780">
+    <Grid Margin="5">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="119*"/>
+            <ColumnDefinition Width="120*"/>
+            <ColumnDefinition Width="117*"/>
+            <ColumnDefinition Width="151*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="67*"/>
+            <RowDefinition Height="83*"/>
+            <RowDefinition Height="209*"/>
+        </Grid.RowDefinitions>
+        <Label x:Name="label" Content="Select Machine:" HorizontalAlignment="Center" VerticalAlignment="Center" Width="94" Height="24" Margin="40,9,45,34"/>
+        <ComboBox x:Name="cbMachineList" ItemsSource="{Binding RoboVMControls.MachinesList}" SelectedItem="{Binding RoboVMControls.SelectedMachineName}" Grid.Column="0" Height="24" VerticalAlignment="Bottom" Margin="42,0,43,0"/>
+        <Label x:Name="Accountlabel" Content="Select Account:" HorizontalAlignment="Center" Width="94" Grid.Column="1" VerticalAlignment="Center" Height="24" Margin="46,9,40,34" />
+        <ComboBox x:Name="cbAccountsList" ItemsSource="{Binding RoboVMControls.AccountsList}" SelectedItem="{Binding RoboVMControls.SelectedAccountName}" Grid.Column="1" Height="24" VerticalAlignment="Bottom" Margin="43,0" />
+        <Label x:Name="DomainLabel" Content="Select Domain:" HorizontalAlignment="Center" Width="94" Grid.Column="2" VerticalAlignment="Center" Height="24" Margin="43,9,39,34" />
+        <ComboBox x:Name="cbDomainList" ItemsSource="{Binding RoboVMControls.DomainsList}" SelectedItem="{Binding RoboVMControls.SelectedDomainName}" Grid.Column="2" Height="24" VerticalAlignment="Bottom" Margin="41,0" />
+        <Button x:Name="btnVMConnect" Command="{Binding ConnectCommand,UpdateSourceTrigger=PropertyChanged}" Content="Connect" HorizontalAlignment="Center" Grid.Column="3" Width="94" Height="24" VerticalAlignment="Bottom" />
+        <Button x:Name="btnChkSession" Command="{Binding CheckCommand,UpdateSourceTrigger=PropertyChanged}" Content="Check VM Details" HorizontalAlignment="Center" Grid.Row="1" Grid.Column="0"  Width="90" Height="24" VerticalAlignment="Center"  />
+        <DataGrid x:Name="gVMDetails" ItemsSource="{Binding RoboVMControls.VMDetails}" Grid.ColumnSpan="4" Grid.Row="2" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" />
+        <Button x:Name="btnReporting" Command="{Binding ReportingCommand,UpdateSourceTrigger=PropertyChanged}" Content="Reporting Section" Grid.Column="3" HorizontalAlignment="Center" Grid.Row="1" VerticalAlignment="Center" Width="100" Height="24"/>
+        <CheckBox x:Name="checkCPU" Content="CPU Check?" IsChecked="{Binding RoboVMControls.CPUCheck}" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="94" Height="24" />
+    </Grid>
+</Window>

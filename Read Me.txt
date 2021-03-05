@@ -1,0 +1,12 @@
+1. On Main window, check "CPU Check" if you want to know the cpu utilization of the servers this will take sometime.
+2. In Repoting Section,
+	a. Check FullDaterange along with fromdate,to date and use case name if you want ticket count for the specifed date range.	
+	b. If it is unchecked, ticket count for selected todate will populate in table.
+	c. FullDaterange has nothing to do with trackers.
+
+3. For AST( Automation Status Tracker), Just select from date and todate and it will update it.in app.config don't forget to mention the path of automation status tracker and the oces files.
+4. For OldUCs tracker, select fromdate and todate and check daywise to update this tracker.
+   If unchecked DayWise, all the old use cases details will be updated in next sheet with todate sheet name.
+
+Enjoy!!!! :).
+
